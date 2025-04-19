@@ -21,7 +21,7 @@ const secret = process.env.SECRET;
 
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 // app.use(cors({ credentials: true, origin: 'https://my-blog-client.onrender.com' }));
-app.use(cors({ credentials: true, origin: 'https://myblog-1l3u.onrender.com' }));
+app.use(cors({ credentials: true, origin: "https://myblog-1l3u.onrender.com"}));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -37,10 +37,6 @@ main().then((res)=>{console.log("successfull connection");
 }).catch((err)=>{console.log(err);
 })
     
-
-
-
-
 
 app.post("/register", async (req, res) => {
     const { username, password } = req.body;
