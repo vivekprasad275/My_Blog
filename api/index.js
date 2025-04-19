@@ -20,7 +20,8 @@ const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
 
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-app.use(cors({ credentials: true, origin: 'https://my-blog-client.onrender.com' }));
+// app.use(cors({ credentials: true, origin: 'https://my-blog-client.onrender.com' }));
+app.use(cors({ credentials: true, origin: 'https://myblog-1l3u.onrender.com' }));
 
 app.use(express.json());
 app.use(cookieParser());
