@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 const DB_LINK = process.env.DB_LINK;
-async function main{
+async function main(){
     mongoose.connect(
         DB_LINK
     )
