@@ -20,8 +20,8 @@ const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
 
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-// app.use(cors({ credentials: true, origin: 'https://my-blog-client.onrender.com' }));
-app.use(cors({ credentials: true, origin: "https://myblog-1l3u.onrender.com"}));
+// app.use(cors({ credentials: true, origin: "https://myblog-1l3u.onrender.com"}));
+app.use(cors({ credentials: true, origin: 'https://myblog-1l3u.onrender.com'}));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -70,13 +70,23 @@ app.post("/login", async (req, res) => {
 });
 
 // profile (to check if we are already loggedin or not)
+// app.get("/profile", (req, res) => {
+//     const { token } = req.cookies;
+//     jwt.verify(token, secret, {}, (err, info) => {
+//         if (err) throw err;
+//         res.json(info);
+//     });
+// });
+
 app.get("/profile", (req, res) => {
     const { token } = req.cookies;
+    if (!token) return res.status(401).json({ error: "Token missing" });
     jwt.verify(token, secret, {}, (err, info) => {
-        if (err) throw err;
+        if (err) return res.status(403).json({ error: "Invalid token" });
         res.json(info);
     });
 });
+
 
 // logout route
 app.post("/logout", (req, res) => {
