@@ -49,7 +49,7 @@ const CreatePost = () => {
 
         ev.preventDefault();
 
-        const response = await fetch("http://localhost:4000/post", {
+        const response = await fetch("https://my-blog-ll68.onrender.com/post", {
             method: "POST",
             body: data,
             //check this

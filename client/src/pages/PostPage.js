@@ -8,7 +8,7 @@ const PostPage = () => {
     const {id} = useParams();
     const {userInfo} = useContext(UserContext);
     useEffect(()=>{
-        fetch(`http://localhost:4000/post/${id}`)
+        fetch(`https://my-blog-ll68.onrender.com/post/${id}`)
         .then(response => {
             response.json().then(postInfo => {
                 setPostInfo(postInfo);
@@ -27,7 +27,7 @@ const PostPage = () => {
         </div>
     )}
     <div className='image'>
-        <img src={`http://localhost:4000/${postInfo.cover}`} />
+        <img src={`https://my-blog-ll68.onrender.com/${postInfo.cover}`} />
     </div>
     {/* <p>{postInfo.content}</p> */}
     <div><h3 className='summary'>{postInfo.summary}</h3></div>
