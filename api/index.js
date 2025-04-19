@@ -17,7 +17,8 @@ const app = express();
 // data encryption
 const salt = bcrypt.genSaltSync(10);
 // decryption key
-const secret = process.env.SECRET;
+// const secret = process.env.SECRET;
+const secret = "asdfe45we45w345wegw345werjktjwertkj";
 
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 // app.use(cors({ credentials: true, origin: "https://myblog-1l3u.onrender.com"}));
@@ -29,7 +30,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 const DB_LINK = process.env.DB_LINK;
 async function main(){
     mongoose.connect(
-        DB_LINK
+       "mongodb+srv://blog:efUNQMok6UhMgpzd@cluster0.qmlpi37.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     )
 }
 
